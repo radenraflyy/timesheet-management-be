@@ -114,16 +114,8 @@ class ActivityController {
     }
   }
 
-  async deleteActivity({ request, response }) {
-    const { id_activity } = request.all();
-    const rules = {
-      id_activity: "required",
-    };
-    const validation = await validate(request.all(), rules);
-    if (validation.fails()) {
-      response.status(400);
-      return validation.messages();
-    }
+  async deleteActivity({ request, response, params }) {
+    const id_activity = params.idActivity;
 
     if (id_activity < 0) {
       response.status(400);
@@ -141,12 +133,9 @@ class ActivityController {
           messages: "Id Not Found",
         };
       }
-      const result = await Database.raw(
-        'select * from "user-management"."f_list_activity"()'
-      );
+
       return {
         messages: "Succesfully Delete Activity",
-        data: result.rows,
       };
     } catch (error) {
       response.status(500).send(error.message);
@@ -169,7 +158,7 @@ class ActivityController {
       );
       if (result.rows.length === 0) {
         return {
-          messages: "No data with id " + id_project,
+          messages: "Data Activity Not Found",
         };
       } else {
         return {

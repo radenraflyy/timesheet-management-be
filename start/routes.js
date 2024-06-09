@@ -31,8 +31,10 @@ Route.group(() => {
   Route.post("insert", "ActivityController.insertActivity");
   Route.get("get", "ActivityController.getListActivity");
   Route.patch("update/:idActivity", "ActivityController.updateActivity");
-  Route.delete("delete", "ActivityController.deleteActivity");
+  Route.delete("delete/:idActivity", "ActivityController.deleteActivity");
   Route.get("filter/:idProject", "ActivityController.filterActivity");
+  Route.get("export", "ExportController.downloadActivity");
+  Route.post("import", "ImportController.importActivity");
 })
   .prefix(api + "/timesheets-activity")
   .formats(exts);

@@ -19,7 +19,10 @@ class ProjectController {
       const result = await Database.raw(
         `select * from "user-management"."f_create_project"('${name}')`
       );
-      return result.rows;
+      return {
+        messages: "Succesfully Insert Project",
+        data: result.rows,
+      };
     } catch (error) {
       response.status(500).send(error.message);
     }

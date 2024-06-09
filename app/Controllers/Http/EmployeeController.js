@@ -16,11 +16,12 @@ class EmployeeController {
       return validation.messages();
     }
     try {
-      await Database.raw(
+      const res = await Database.raw(
         `select * from "user-management"."f_create_employees"('${name_employe}', ${rate})`
       );
       return {
         messages: "Succesfully Insert Employee",
+        data: res.rows,
       };
     } catch (error) {
       response.status(500).send(error.message);
