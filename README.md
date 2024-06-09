@@ -37,4 +37,5 @@ adonis migration:run
 # I use PostgreSql to store data, and create a function to be implemented in the Back End system or which will be made into an API
 ![image](https://github.com/radenraflyy/timesheet-management-be/assets/91299350/29cffa31-512e-4aa5-a4fa-c0922dca7777)
 
-
+#Open for detail list function timesheet management
+[List_function_techical_assessment_raden_rafly_pradana_kusumah.pdf](https://github.com/user-attachments/files/15753333/List_function_techical_assessment_raden_rafly_pradana_kusumah.pdf)
